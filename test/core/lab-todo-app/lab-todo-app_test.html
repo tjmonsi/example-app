@@ -26,6 +26,12 @@
           element = fixture('basic');
         });
 
+        teardown(function(done) {
+          if (window.firebase) {
+            window.firebase.app().delete().then(done)
+          }
+        });
+
         test('instantiating the element works', function() {
           assert.equal(element.nodeName.toLowerCase(), 'lab-todo-app');
           assert.equal(element.constructor.is, 'lab-todo-app');
