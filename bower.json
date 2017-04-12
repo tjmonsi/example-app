@@ -2,7 +2,9 @@
   "name": "lab-todo-app",
   "main": "index.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0-rc.2"
+    "polymer": "Polymer/polymer#^2.0.0-rc.2",
+    "polymerfire": "firebase/polymerfire#2.0-preview",
+    "uniflow-polymer": "google/uniflow-polymer#^0.5.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#2.0-preview",
@@ -11,6 +13,7 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#1.0.0-rc.5"
   },
   "resolutions": {
-    "polymer": "^2.0.0-rc.2"
+    "polymer": "^2.0.0-rc.3",
+    "webcomponentsjs": "1.0.0-rc.5"
   }
 }
