@@ -1,5 +1,9 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
-
+<link rel="import" href="../../bower_components/polymer/lib/legacy/class.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="../../bower_components/uniflow-polymer/application-state.html">
+<link rel="import" href="../../bower_components/uniflow-polymer/action-dispatcher.html">
+<link rel="import" href="../../bower_components/uniflow-polymer/action-emitter.html">
 <!--
 `state-manager`
 Manages state of the whole app
@@ -9,24 +13,49 @@ Manages state of the whole app
 
 <dom-module id="state-manager">
   <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <h2>Hello [[prop1]]</h2>
+    <firebase-app
+        api-key="[[_firebaseConfig.apiKey]]"
+        auth-domain="[[_firebaseConfig.authDomain]]"
+        database-url="[[_firebaseConfig.databaseURL]]"
+        project-id="[[_firebaseConfig.projectId]]"
+        storage-bucket="[[_firebaseConfig.storageBucket]]"
+        messaging-sender-id="[[_firebaseConfig.messagingSenderId]]"></firebase-app>
   </template>
 
   <script>
     (function() {
-      class StateManager extends Polymer.Element {
+      const config = {
+        apiKey: "AIzaSyA2ey2RaAnRuDD5RcZulzWBeHdj0MTFLkg",
+        authDomain: "lab-todo-app.firebaseapp.com",
+        databaseURL: "https://lab-todo-app.firebaseio.com",
+        projectId: "lab-todo-app",
+        storageBucket: "lab-todo-app.appspot.com",
+        messagingSenderId: "188759612863"
+      };
+
+      class StateManager extends Polymer.mixinBehaviors([
+          UniFlow.ActionDispatcher,
+          UniFlow.ActionEmitter,
+          UniFlow.ApplicationState],
+          Polymer.Element) {
         static get is() { return 'state-manager'; }
         static get properties() {
           return {
-            prop1: {
-              type: String,
-              value: 'state-manager'
+            state: {
+              type: Object,
+              value: () => ({})
+            },
+            _firebaseConfig: {
+              type: Object,
+              readOnly: true,
+              value: () => (config)
             }
+          };
+        }
+        ready() {
+          super.ready();
+          this.state = {
+            data: {}
           };
         }
       }

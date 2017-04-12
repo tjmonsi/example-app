@@ -24,10 +24,54 @@
         setup(function() {
           element = fixture('basic');
         });
+
+        teardown(function(done) {
+          window.firebase.app().delete().then(done)
+        });
+
         test('instantiating the element works', function() {
           assert.equal(element.nodeName.toLowerCase(), 'state-manager');
           assert.equal(element.constructor.is, 'state-manager');
         });
+
+        test('should have firebase', function() {
+          expect(window.firebase).to.exist;
+        });
+
+        test('should have firebase-app loaded', function() {
+          expect(document.createElement('firebase-app').constructor.is).to.equal('firebase-app');
+        });
+
+        test('should have UniFlow', function() {
+          expect(window.UniFlow).to.exist;
+        });
+
+        test('should have state', function() {
+          expect(element.state).to.exist;
+        });
+
+        test('should have state.data', function() {
+          expect(element.state.data).to.exist;
+        });
+
+        test('should include the ApplicationState behavior', function() {
+          expect(UniFlow.ApplicationState).to.exist;
+          expect(element.application.element).to.equal(element);
+        });
+
+        test('should include the ActionEmitter behavior', function() {
+          expect(UniFlow.ActionEmitter).to.exist;
+          assert.isFunction(element.emitAction)
+        });
+
+        test('should include the ActionDispatcher behavior', function() {
+          expect(UniFlow.ActionDispatcher).to.exist;
+          assert.isFunction(element.dispatchAction);
+        });
+
+        test('shoud have a firebase instance', function() {
+          expect(window.firebase.app()).to.exist;
+        })
       });
     </script>
   </body>
