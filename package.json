@@ -4,7 +4,7 @@
   "description": "Lab todo app",
   "main": "index.js",
   "scripts": {
-    "test": "xvfb-run polymer test"
+    "test": "xvfb-run polymer test --plugin local"
   },
   "repository": {
     "type": "git",

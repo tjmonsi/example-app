@@ -1,0 +1,35 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`state-manager`
+Manages state of the whole app
+
+@demo demo/index.html
+-->
+
+<dom-module id="state-manager">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]</h2>
+  </template>
+
+  <script>
+    class MyElement extends Polymer.Element {
+      static get is() { return 'state-manager'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'state-manager'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(MyElement.is, MyElement);
+  </script>
+</dom-module>
