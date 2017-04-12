@@ -29,6 +29,8 @@
         teardown(function(done) {
           if (window.firebase) {
             window.firebase.app().delete().then(done)
+          } else {
+            done();
           }
         });
 

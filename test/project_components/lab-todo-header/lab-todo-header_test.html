@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>lab-todo-app test</title>
+
+    <script src="../../../../webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../../../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../../../project_components/lab-todo-header/lab-todo-header.html">
+  </head>
+  <body>
+    <test-fixture id="basic">
+      <template>
+        <lab-todo-header></lab-todo-header>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('lab-todo-header', function() {
+        var element;
+        setup(function() {
+          element = fixture('basic');
+        });
+
+        teardown(function(done) {
+          if (window.firebase) {
+            window.firebase.app().delete().then(done)
+          } else {
+            done();
+          }
+        });
+
+        test('instantiating the element works', function() {
+          assert.equal(element.nodeName.toLowerCase(), 'lab-todo-header');
+          assert.equal(element.constructor.is, 'lab-todo-header');
+        });
+      });
+    </script>
+  </body>
+</html>

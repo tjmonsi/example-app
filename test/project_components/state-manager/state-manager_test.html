@@ -26,7 +26,11 @@
         });
 
         teardown(function(done) {
-          window.firebase.app().delete().then(done)
+          if (window.firebase) {
+            window.firebase.app().delete().then(done)
+          } else {
+            done();
+          }
         });
 
         test('instantiating the element works', function() {
