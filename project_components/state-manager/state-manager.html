@@ -38,7 +38,9 @@ Manages state of the whole app
           UniFlow.ActionEmitter,
           UniFlow.ApplicationState],
           Polymer.Element) {
+
         static get is() { return 'state-manager'; }
+
         static get properties() {
           return {
             state: {
@@ -52,6 +54,7 @@ Manages state of the whole app
             }
           };
         }
+
         ready() {
           super.ready();
           this.state = {
