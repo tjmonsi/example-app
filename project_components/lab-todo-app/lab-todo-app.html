@@ -1,28 +1,43 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
-<dom-module id="lab-todo-app-app">
+<!--
+
+`<lab-todo-app>` injects a healthy dose of awesome into your page.
+
+In typical use, just slap some `<lab-todo-app>` at the top of your body:
+
+    <body>
+      <lab-todo-app></lab-todo-app>
+
+Wham! It's all awesome now!
+-->
+
+<dom-module id="lab-todo-app">
   <template>
     <style>
       :host {
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]</h2>
+
+    <state-manager></state-manager>
+    <lab-todo-header></lab-todo-header>
+    <home-page></home-page>
+
   </template>
 
   <script>
-    class MyApplication extends Polymer.Element {
-      static get is() { return 'lab-todo-app-app'; }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'lab-todo-app-app'
-          }
-        };
+    (function() {
+      class LabTodoApp extends Polymer.Element {
+        static get is() { return 'lab-todo-app'; }
+        static get properties() {
+          return {
+          };
+        }
       }
-    }
 
-    window.customElements.define(MyApplication.is, MyApplication);
+      window.customElements.define(LabTodoApp.is, LabTodoApp);
+    })();
+
   </script>
 </dom-module>

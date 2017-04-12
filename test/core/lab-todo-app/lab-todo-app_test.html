@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>lab-todo-app-app test</title>
+    <title>lab-todo-app test</title>
 
+    <script src="../../../../webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../../../../webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../../../web-component-tester/browser.js"></script>
 
@@ -20,9 +21,29 @@
 
     <script>
       suite('lab-todo-app', function() {
+        var element;
+        setup(function() {
+          element = fixture('basic');
+        });
+
         test('instantiating the element works', function() {
-          var element = fixture('basic');
-          assert.equal(element.is, 'lab-todo-app');
+          assert.equal(element.nodeName.toLowerCase(), 'lab-todo-app');
+          assert.equal(element.constructor.is, 'lab-todo-app');
+        });
+
+        test('should have state-manager as part of shadow dom', function() {
+          var el = element.root.querySelector('state-manager');
+          expect(el).to.exist;
+        });
+
+        test('should have lab-todo-header as part of shadow dom', function() {
+          var el = element.root.querySelector('lab-todo-header');
+          expect(el).to.exist;
+        });
+
+        test('should have home-page as part of shadow dom', function() {
+          var el = element.root.querySelector('home-page');
+          expect(el).to.exist;
         });
       });
     </script>

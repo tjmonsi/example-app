@@ -1,4 +1,6 @@
 {
+  "entrypoint": "index.html",
+  "shell": "project_components/lab-todo-app/lab-todo-app.html",
   "lint": {
     "rules": [
       "polymer-2"
