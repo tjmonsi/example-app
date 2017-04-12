@@ -6,23 +6,23 @@
 
     <title>lab-todo-app-app test</title>
 
-    <script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../../web-component-tester/browser.js"></script>
+    <script src="../../../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../../../web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../../src/lab-todo-app-app/lab-todo-app-app.html">
+    <link rel="import" href="../../../project_components/lab-todo-app/lab-todo-app.html">
   </head>
   <body>
     <test-fixture id="basic">
       <template>
-        <lab-todo-app-app></lab-todo-app-app>
+        <lab-todo-app></lab-todo-app>
       </template>
     </test-fixture>
 
     <script>
-      suite('lab-todo-app-app', function() {
+      suite('lab-todo-app', function() {
         test('instantiating the element works', function() {
           var element = fixture('basic');
-          assert.equal(element.is, 'lab-todo-app-app');
+          assert.equal(element.is, 'lab-todo-app');
         });
       });
     </script>
