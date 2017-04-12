@@ -1,4 +1,4 @@
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
 <!--
 `state-manager`
@@ -18,18 +18,21 @@ Manages state of the whole app
   </template>
 
   <script>
-    class MyElement extends Polymer.Element {
-      static get is() { return 'state-manager'; }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'state-manager'
-          }
-        };
+    (function() {
+      class StateManager extends Polymer.Element {
+        static get is() { return 'state-manager'; }
+        static get properties() {
+          return {
+            prop1: {
+              type: String,
+              value: 'state-manager'
+            }
+          };
+        }
       }
-    }
 
-    window.customElements.define(MyElement.is, MyElement);
+      window.customElements.define(StateManager.is, StateManager);
+    })();
+
   </script>
 </dom-module>
