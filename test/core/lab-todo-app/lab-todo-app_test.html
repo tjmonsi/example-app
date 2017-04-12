@@ -29,7 +29,6 @@
         test('instantiating the element works', function() {
           assert.equal(element.nodeName.toLowerCase(), 'lab-todo-app');
           assert.equal(element.constructor.is, 'lab-todo-app');
-          assert.equal(element instanceof Polymer.Element, true);
         });
 
         test('should have state-manager as part of shadow dom', function() {
