@@ -1,0 +1,6 @@
+{
+  "name": "lab-todo-app",
+  "short_name": "lab-todo-app",
+  "start_url": "/",
+  "display": "standalone"
+}
